@@ -1,4 +1,4 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
+ @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
 
 :root {
   --bb-blue: #003882;
@@ -8,55 +8,63 @@
   --bb-font: Arial, sans-serif;
 }
 
+.bb-header {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
 
 .bb-topbar {
   background-color: var(--bb-yellow);
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 0px 40px;
-  /* 15 px 24 px */
-  gap: 16px;
   font-family: var(--bb-font);
-  height: 80px;
-  /* 0 */
+  height: 70px;
+  box-sizing: border-box;
+}
+
+.bb-logo-area,
+.bb-topnav,
+.bb-topbar-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .bb-logo-area {
-  flex: 1; 
-  display: flex;
   justify-content: flex-start;
-  gap: 12px;
-  align-items: center;
+  gap: 10px;
+  line-height: 1;
+}
+
+.bb-topnav {
+  gap: 23px; 
+  justify-content: center;
+}
+
+.bb-topbar-right {
+  gap: 15px;
+  justify-content: flex-end;
+  min-width: 320px;
 }
 
 .bb-logo-img {
-  height: 45px;
+  height: 50px;
   width: auto;
   display: block;
-  padding: 0;
-  margin: 0;
+  object-fit: contain;
 }
 
-.bb-logo-text {
-  font-family: inherit;
-  font-size: 1.4rem;
+.bb-logo-text, .bb-logo-yellow {
+  font-family: var(--bb-font); 
+  font-size: 1.35rem;
   font-weight: 800; 
   color: var(--bb-blue) !important;
-  text-decoration: none !important;
   margin: 0;
-  padding: 0;
   cursor: default;
-}
-
-
-.bb-topnav {
   display: flex;
   align-items: center;
-  gap: 35px;
-  justify-content: center;
-  flex: 0;
-  white-space: nowrap;
 }
 
 .bb-topnav a {
@@ -64,34 +72,34 @@
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 700; 
-  padding: 5px 0;
-  border-radius: 4px;
+  padding-bottom: 2px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s;
   white-space: nowrap;
 }
 
 .bb-topnav a:hover {
-  background-color: rgba(0, 56, 130, 0.1);
+  /* opacity: 0.75; */
+  color: var(--bb-blue-dark);
+  border-bottom: 2px solid var(--bb-blue-dark);
 }
 
-/* Grupo Direito: Busca + Botão */
-.bb-topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-left: auto;
-  justify-content: center;
-  flex: '';
+.bb-topnav a.active {
+  color: var(--bb-blue-dark);
+  border-bottom: 2px solid var(--bb-blue);
+  font-weight: 800;
 }
 
+ /* Grupo Direito: Busca + Botão  */
 .bb-search-form {
   display: flex;
   align-items: center;
-  height: 38px;
-  width: 250px;
+  height: 36px;
+  width: 220px;
   background: transparent; 
   border: 1px solid var(--bb-blue); 
-  border-radius: 10px;
-  padding: 0 15px;
+  border-radius: 8px;
+  gap: 8px; 
+  padding: 0 12px;
   flex-direction: row; 
   box-sizing: border-box;
 }
@@ -100,41 +108,38 @@
   background: transparent !important;
   border: none !important;
   outline: none !important;
-  color: var(--bb-blue-dark);
-  font-size: 0.8rem;
-  width: 100%;
-  padding-left: 8px;
-  box-shadow: none;
-  height: 100%;
-  /* -webkit-appearance: none; */
-}
-
-.bb-search-lupa {
-  background: transparent !important;
-  border: none !important;
   color: var(--bb-blue);
-  cursor: pointer;
-  font-size: 0.9rem;
-  align-items: center;
-  display: flex;
-  padding: 0;
-  margin: 0;
+  font-size: 0.78rem;
+  width: 100%;
 }
 
-/* Botão de Conta Sólido Azul */
+.bb-search-input::placeholder {
+  color: rgba(0, 56, 130, 0.45);
+} 
+
+.bb-searche-lupa {
+  color: var(--bb-blue);
+  font-size: 0.85rem;
+}
+
+
+/* Botão de Conta Sólido Azul  */
 .bb-account-btn {
   background-color: var(--bb-blue);
   color: var(--bb-white) !important;
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 16px;
-  border-radius: 10px;
+  padding:0 18px;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   white-space: nowrap;
   text-decoration: none;
+  height: 36px;
+  cursor: pointer;
+  border: none;
 }
 
 .bb-account-btn:hover {
@@ -144,39 +149,35 @@
 .bb-user-logged {
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin: 10px;
+  gap: 15px;
 }
 
 .bb-user-name {
   margin: 0;
   font-size: 0.9rem;
-  color: var(--bb-blue); /* Azul oficial */
+  color: var(--bb-blue);
   font-weight: 500;
-  cursor: default;
-  white-space: nowrap;
-  top: -1px;
+  white-space: nowrap; 
 }
 
 .bb-logout-btn { 
   background-color: var(--bb-blue);
   color: var(--bb-white);
   border: none;
-  padding: 0px 20px;
-  border-radius: 10px;
+  padding: 0 18px;
+  border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  font-size: 0.85rem;
-  transition: background 0.3s;
-  height: 38px;
+  font-size: 0.82rem;
+  transition: background 0.2s;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  top: -5px;
-  width: 67px;
+  position: relative; 
+  top: -5px; 
 }
   
 .bb-logout-btn:hover {
-  background-color: #002b63;
+  background-color: var(--bb-blue-dark);
 }

@@ -23,11 +23,12 @@ export default function Navbar({ usuario, setUsuario }) {
       <div className="bb-topbar"> 
        {/* LADO ESQUERDO: Logo e Links */}
         <div className="bb-logo-area">
-          <img src={LogoImg} alt="Logo" className="bb-logo-img" /> 
+          <img src={LogoImg} alt="Logo BB EletroRota" className="bb-logo-img" /> 
       
-          <h2 className="bb-logo-text">
-            BB <span className="bb-logo-yellow">EletroRota</span>
-          </h2>
+          <span className="bb-logo-text">BB</span>
+          <span className="bb-logo-yellow">
+            EletroRota
+          </span>
         </div>
  
         <nav className="bb-topnav">
