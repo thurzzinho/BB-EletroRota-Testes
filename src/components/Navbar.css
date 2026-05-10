@@ -102,6 +102,7 @@
   padding: 0 12px;
   flex-direction: row; 
   box-sizing: border-box;
+  justify-content: center;
 }
 
 .bb-search-input {
@@ -114,13 +115,9 @@
 }
 
 .bb-search-input::placeholder {
-  color: rgba(0, 56, 130, 0.45);
-} 
-
-.bb-searche-lupa {
   color: var(--bb-blue);
-  font-size: 0.85rem;
-}
+  opacity: 0.7;
+} 
 
 
 /* Botão de Conta Sólido Azul  */
@@ -130,11 +127,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding:0 18px;
+  padding:0 14px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   white-space: nowrap;
   text-decoration: none;
   height: 36px;
@@ -144,12 +141,6 @@
 
 .bb-account-btn:hover {
   background-color: var(--bb-blue-dark);
-}
-
-.bb-user-logged {
-  display: flex;
-  align-items: center;
-  gap: 15px;
 }
 
 .bb-user-name {
@@ -176,8 +167,156 @@
   justify-content: center;
   position: relative; 
   top: -5px; 
+  flex-shrink: 0;
+  width: auto;
 }
   
 .bb-logout-btn:hover {
   background-color: var(--bb-blue-dark);
+}
+
+.bb-ola-mobile {
+  display: none;
+}
+
+/* R E S P O N S I V I D A D E */
+
+/* NOTEBOOKS */
+@media (max-width: 1366px) and (min-width: 861px) {
+  .bb-topbar {
+    padding: 0 24px;
+    gap: 12px;
+  }
+  .bb-topnav {
+    gap: 16px;
+  }
+  .bb-topnav a {
+    font-size: 0.82rem;
+  }
+  .bb-search-form {
+    width: 180px;
+  }
+  .bb-logo-text {
+    font-size: 1.1rem;
+  }
+}
+
+/* TABLET E MOBILE */
+@media (max-width: 860px) {
+
+  .bb-topbar {
+    flex-direction: column;
+    height: auto;
+    padding: 12px 16px;
+    gap: 0;
+    align-items: stretch;
+    position: relative;
+    overflow: visible;
+  }
+
+  .bb-logo-area {
+    padding-bottom: 10px;
+    justify-content: center;
+    flex: unset;
+    width: 100%; 
+  }
+
+  .bb-topbar-right {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    width: auto;
+    min-width: 0;
+    gap: 0;
+    overflow: visible;
+  }
+
+  .bb-topbar-right .bb-search-form { display: none; }
+  .bb-topbar-right .bb-user-name { display: none; }
+
+  .bb-topnav {
+    flex: unset;
+    justify-content: center;
+    gap: 24px;
+    padding: 10px 0;
+    border-top: 1px solid rgba(0, 56, 130, 0.15);
+    border-bottom: 1px solid rgba(0, 56, 130, 0.15);
+  }
+
+  .bb-topnav a {
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-bottom 0.2s;
+  }
+
+  .bb-topnav a:hover {
+    color: var(--bb-blue-dark);
+    border-bottom: 2px solid var(--bb-blue-dark);
+  }
+
+  .bb-ola-mobile {
+    display: block;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--bb-blue);
+    margin: 10px 0 6px;
+    font-weight: 700;
+  }
+
+  .bb-search-mobile {
+    display: flex !important;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    height: 34px;
+    justify-content: center;
+    gap: 8px;
+    
+  }
+
+  .bb-search-mobile .bb-search-input {
+    width: auto;
+    flex: unset;        
+    min-width: 0;
+  }
+
+  
+  .bb-topbar-right .bb-account-btn {
+  padding: 0 12px;
+  font-size: 0.72rem;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.bb-topbar-right .bb-account-btn span {
+  display: block;
+}
+
+/* substitui "Acessar a sua conta" por "Acessar" */
+.bb-topbar-right .bb-account-btn span {
+  font-size: 0;  /* esconde o texto original */
+}
+
+.bb-topbar-right .bb-account-btn span::before {
+  content: 'Login';  /* texto alternativo */
+  font-size: 0.72rem;
+}
+
+  .bb-topbar-right .bb-logout-btn {
+    padding: 0 12px;
+    font-size: 0.72rem;
+    height: 30px;
+    border-radius: 20px;
+  }
+}
+
+/* MOBILE PEQUENO */
+@media (max-width: 480px) {
+  .bb-topbar { padding: 10px 12px; }
+  .bb-logo-text { font-size: 0.95rem; }
+  .bb-topnav { gap: 12px; }
+  .bb-topnav a { font-size: 0.75rem; }
+
 }

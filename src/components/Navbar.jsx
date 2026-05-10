@@ -21,10 +21,10 @@ export default function Navbar({ usuario, setUsuario }) {
   return (
     <header className="bb-header">
       <div className="bb-topbar"> 
+        
        {/* LADO ESQUERDO: Logo e Links */}
         <div className="bb-logo-area">
           <img src={LogoImg} alt="Logo BB EletroRota" className="bb-logo-img" /> 
-      
           <span className="bb-logo-text">BB</span>
           <span className="bb-logo-yellow">
             EletroRota
@@ -36,14 +36,28 @@ export default function Navbar({ usuario, setUsuario }) {
           <Link to="/gerenciar">Gerenciar Usuários</Link>
           <Link to="/mapas">Mapas</Link>
         </nav>
-        
+    
+        {usuario && (
+          <h3 className="bb-user-name bb-ola-mobile">
+            Olá, <strong>{usuario?.nome.split(' ')[0]}</strong>
+          </h3>
+        )}
 
-        {/* LADO DIREITO: Busca e Login/Logout */}
+        <form className="bb-search-form bb-search-mobile" onSubmit={handleBusca} 
+          style={{ display: 'none' }}>
+          <i className="fas fa-search"></i>
+          <input
+            type="text"
+            className="bb-search-input"
+            placeholder="Busque no site"
+            value={busca}
+            onChange={(e) => setBusca(e.target.value)}
+          />
+        </form>
+
         <div className="bb-topbar-right">
           <form className="bb-search-form" onSubmit={handleBusca}>
-            <div className="bb-search-icon-wrapper">
-              <i className="fas fa-search"></i>
-            </div>
+            <i className="fas fa-search"></i>
             <input 
               type="text" 
               className="bb-search-input"
@@ -55,14 +69,14 @@ export default function Navbar({ usuario, setUsuario }) {
 
           {usuario ? (
             /* L O G A D O */
-            <div className="bb-user-logged">
-              <h3 className="bb-user-name">
-                Olá, <strong>{usuario?.nome.split(' ')[0]}</strong>
-              </h3>
-              <button className="bb-logout-btn" onClick={handleLogout}>
-                Sair
-              </button>
-            </div>
+              <>
+                <h3 className="bb-user-name">
+                  Olá, <strong>{usuario?.nome.split(' ')[0]}</strong>
+                </h3>
+                <button className="bb-logout-btn" onClick={handleLogout}>
+                  Sair
+                </button>
+              </>
           ) : (
             /* D E S L O G A DO */
             <Link to="/login" className="bb-account-btn">
